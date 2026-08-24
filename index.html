@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio Production-Grade Fullstack Developer — React, Node.js, Laravel, & Cloud Infrastructure" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio Fullstack Developer</title>
+    <link rel="icon" href="/images/icon/icon.png">
+    <script>
+      (function() {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-surface-light dark:bg-surface-dark text-ink-primary dark:text-ink-dark-primary font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" href="/src/main.jsx" src="/src/main.jsx"></script>
+  </body>
+</html>

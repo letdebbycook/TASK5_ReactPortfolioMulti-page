@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="devBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#devBg)"/>
+  <rect x="40" y="40" width="720" height="370" rx="12" fill="#022c22" stroke="#059669" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="40" y="40" width="720" height="44" rx="12" fill="#064e3b"/>
+  <circle cx="70" cy="62" r="6" fill="#ef4444"/>
+  <circle cx="90" cy="62" r="6" fill="#eab308"/>
+  <circle cx="110" cy="62" r="6" fill="#22c55e"/>
+  <text x="140" y="67" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="600">DevPulse API Gateway Terminal</text>
+
+  <!-- Terminal Content -->
+  <text x="70" y="120" fill="#34d399" font-family="monospace" font-size="14">&gt; System initialized. Rate limiter active (2,000,000 req/day)</text>
+  <text x="70" y="150" fill="#a7f3d0" font-family="monospace" font-size="14">[2026-08-24 09:30:12] GET /api/v1/auth/verify - 200 OK (12ms)</text>
+  <text x="70" y="180" fill="#a7f3d0" font-family="monospace" font-size="14">[2026-08-24 09:30:13] POST /api/v1/checkout - 201 Created (45ms)</text>
+  <text x="70" y="210" fill="#f43f5e" font-family="monospace" font-size="14">[2026-08-24 09:30:14] WARN RateLimitExceeded ip=192.168.1.45 (Blocked)</text>
+  <text x="70" y="240" fill="#34d399" font-family="monospace" font-size="14">[2026-08-24 09:30:15] GET /api/v1/metrics - 200 OK (8ms)</text>
+  
+  <!-- Status Badge Box -->
+  <rect x="70" y="280" width="660" height="90" rx="8" fill="#064e3b" opacity="0.8"/>
+  <text x="90" y="315" fill="#6ee7b7" font-family="sans-serif" font-size="16" font-weight="bold">Gateway Health: EXCELLENT</text>
+  <text x="90" y="345" fill="#ecfdf5" font-family="sans-serif" font-size="13">Active Microservices: 24 | Redis Cache Hit Ratio: 98.4% | Uptime: 99.99%</text>
+</svg>

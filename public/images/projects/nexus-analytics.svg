@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nexusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#nexusBg)"/>
+  <rect x="40" y="40" width="720" height="370" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="40" y="40" width="720" height="44" rx="12" fill="#0f172a"/>
+  <circle cx="70" cy="62" r="6" fill="#ef4444"/>
+  <circle cx="90" cy="62" r="6" fill="#eab308"/>
+  <circle cx="110" cy="62" r="6" fill="#22c55e"/>
+  <text x="140" y="67" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="600">Nexus Analytics Dashboard v2.4</text>
+  
+  <!-- Cards -->
+  <rect x="70" y="110" width="200" height="80" rx="8" fill="#334155" opacity="0.6"/>
+  <text x="90" y="138" fill="#94a3b8" font-family="sans-serif" font-size="12">Total Revenue</text>
+  <text x="90" y="170" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold">$128,450</text>
+  
+  <rect x="300" y="110" width="200" height="80" rx="8" fill="#334155" opacity="0.6"/>
+  <text x="320" y="138" fill="#94a3b8" font-family="sans-serif" font-size="12">Transactions</text>
+  <text x="320" y="170" fill="#38bdf8" font-family="sans-serif" font-size="22" font-weight="bold">512,890</text>
+
+  <rect x="530" y="110" width="200" height="80" rx="8" fill="#334155" opacity="0.6"/>
+  <text x="550" y="138" fill="#94a3b8" font-family="sans-serif" font-size="12">Avg Latency</text>
+  <text x="550" y="170" fill="#4ade80" font-family="sans-serif" font-size="22" font-weight="bold">42 ms</text>
+
+  <!-- Bar Chart -->
+  <rect x="90" y="320" width="30" height="60" rx="4" fill="url(#barGrad)"/>
+  <rect x="140" y="270" width="30" height="110" rx="4" fill="url(#barGrad)"/>
+  <rect x="190" y="230" width="30" height="150" rx="4" fill="url(#barGrad)"/>
+  <rect x="240" y="290" width="30" height="90" rx="4" fill="url(#barGrad)"/>
+  <rect x="290" y="210" width="30" height="170" rx="4" fill="url(#barGrad)"/>
+
+  <!-- Line chart wave -->
+  <path d="M 370 340 Q 450 210, 520 280 T 700 220" fill="none" stroke="url(#lineGrad)" stroke-width="4"/>
+  <circle cx="700" cy="220" r="6" fill="#818cf8"/>
+</svg>
