@@ -1,67 +1,122 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { SKILLS } from '../data/skills';
 import { SITE_CONFIG } from '../lib/constants';
-import { FiBriefcase, FiCheck, FiTerminal, FiAward } from 'react-icons/fi';
 import { 
-  SiReact, 
+  FiBriefcase, 
+  FiCheck, 
+  FiTerminal, 
+  FiAward, 
+  FiMail, 
+  FiPhone, 
+  FiGithub, 
+  FiCalendar, 
+  FiDownload 
+} from 'react-icons/fi';
+import { FaGraduationCap, FaCertificate, FaJava } from 'react-icons/fa';
+import { 
+  SiPhp, 
   SiLaravel, 
   SiJavascript, 
+  SiPython, 
+  SiKotlin, 
+  SiFlutter, 
+  SiMysql, 
   SiGit, 
-  SiNodedotjs,
-  SiPostgresql
+  SiHtml5, 
+  SiExpress 
 } from 'react-icons/si';
-import { FaCss3Alt } from 'react-icons/fa';
-import { TbBrandVscode } from 'react-icons/tb';
 
 const ICON_MAP = {
-  SiReact: SiReact,
+  SiPhp: SiPhp,
   SiLaravel: SiLaravel,
   SiJavascript: SiJavascript,
-  FaCss3Alt: FaCss3Alt,
+  SiHtml5: SiHtml5,
+  SiExpress: SiExpress,
+  SiPython: SiPython,
+  SiKotlin: SiKotlin,
+  SiFlutter: SiFlutter,
+  SiMysql: SiMysql,
   SiGit: SiGit,
-  TbBrandVscode: TbBrandVscode,
-  SiNodedotjs: SiNodedotjs,
-  SiPostgresql: SiPostgresql,
+  FaJava: FaJava,
 };
 
-const TIMELINE = [
+const EDUCATION = [
   {
     period: '2023 — Sekarang',
-    role: 'Senior Fullstack Developer',
-    company: 'TechPulse Solutions',
-    description: 'Memimpin tim pengembang beranggotakan 5 engineer dalam membangun platform manajemen SaaS berbasis React & Laravel REST API. Mengurangi latensi respon server hingga 35% via Redis caching.',
+    institution: 'Politeknik Negeri Padang',
+    major: 'Program Studi Teknologi Rekayasa Perangkat Lunak',
+    description:
+      'Menguasai berbagai bahasa pemrograman pengembangan web menggunakan PHP, Laravel dan EJS. Serta mengembangkan aplikasi mobile menggunakan kotlin dan flutter. Spesialis perancangan analisis web dan arsitektur microservice untuk pengelolaan aplikasi berskala mid-high.',
   },
   {
-    period: '2021 — 2023',
-    role: 'Frontend Web Engineer',
-    company: 'NexaDigital Agency',
-    description: 'Mengembangkan 10+ web app SPA kustom menggunakan React, Redux Toolkit, dan Tailwind CSS. Menerapkan pola testing otomatis dan komponen UI reusabel.',
-  },
-  {
-    period: '2020 — 2021',
-    role: 'Junior Backend Developer',
-    company: 'InnoMedia System',
-    description: 'Merancang arsitektur database MySQL/PostgreSQL, integrasi gateway pembayaran pihak ketiga, dan otomatisasi deployment server Linux.',
+    period: '2020 — 2023',
+    institution: 'SMAS IT Mutiara Duri',
+    major: 'Jurusan IPA',
+    description:
+      'Mendalami dasar-dasar pemrograman web menggunakan HTML dan CSS, memahami konsep basis data. Serta memahami fundamental bahasa pemrograman Java.',
   },
 ];
 
-const PRINCIPLES = [
+const EXPERIENCE = [
   {
-    title: 'Performa Pertama',
-    desc: 'Meminimalkan bundle size, menghindari re-render yang tidak perlu, dan memastikan waktu respon API tercepat.',
+    period: '2025',
+    role: 'Project Manager',
+    title: 'SIPRAKTA',
+    description:
+      'Memimpin Tim dalam merancang dan mengembangkan web untuk Sistem Informasi Sidang PKL dan Tugas Akhir Jurusan Administrasi Niaga Politeknik Negeri Padang (SIPRAKTA). Berhasil di Launching tepat waktu pada 18 Juli 2025.',
+    technologies: ['Laravel', 'MySQL', 'CSS', 'Javascript'],
   },
   {
-    title: 'Arsitektur Bersih',
-    desc: 'Struktur kode modular yang mudah di-maintain, di-test, dan dikembangkan oleh tim lintas fungsi.',
+    period: '2025',
+    role: 'Fullstack Developer',
+    title: 'Kurnia Duri Web',
+    description:
+      'Membangun Website E-Commerce pada penjualan jenis kain dengan CRUD dan pencarian. Mengoptimalkan tampilan dengan EJS dan mengelola source code di Github.',
+    technologies: ['EJS', 'Javascript', 'MySQL', 'Git & Github'],
   },
   {
-    title: 'Pengalaman Pengguna (UX)',
-    desc: 'Desain responsif, aksesibilitas keyboard/screen reader, dan state interaktif yang intuitif.',
+    period: '2025',
+    role: 'Mobile & ML Developer',
+    title: 'Kurnia Mobile',
+    description:
+      'Membangun Platform Penjualan dan Stok Kain berbasis Mobile untuk Toko Kurnia Berbasis Machine Learning. Menerapkan segmentasi produk menggunakan metode K-Means dan prediksi stok menggunakan metode Random Forest.',
+    technologies: ['Flutter', 'MySQL', 'REST API', 'Python', 'Machine Learning'],
   },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: 'Java Fundamental',
+    date: '3 Mei 2024',
+    issuer: 'Oracle Academy',
+  },
+  {
+    title: 'LOGISTICELLS',
+    date: '22 Maret 2025',
+    issuer: 'Sertifikasi',
+  },
+  {
+    title: 'Huawei ICT Academy',
+    date: '27 Desember 2025',
+    issuer: 'Huawei Academy',
+  },
+  {
+    title: 'Red Hat Academy',
+    date: '12 April 2026',
+    issuer: 'Red Hat',
+  },
+];
+
+const SOFT_SKILLS = [
+  'Fasih Berbahasa Indonesia',
+  'Fasih Berbahasa Inggris',
+  'Perencanaan Proyek',
+  'Kolaborasi dan Komunikasi',
+  'Problem Solving',
 ];
 
 export function About() {
@@ -72,27 +127,38 @@ export function About() {
       
       {/* Overview Section */}
       <section className="space-y-6">
-        <SectionHeading
-          eyebrow="Tentang Saya"
-          title="Fokus Pada Kualitas Kode & Rekayasa Perangkat Lunak"
-          description="Latar belakang, filosofi kerja, dan rekam jejak saya dalam membangun aplikasi web modern."
-        />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <SectionHeading
+            eyebrow="Tentang Saya"
+            title="Profil & Rekayasa Perangkat Lunak"
+            description="Latar belakang, keahlian, dan rekam jejak saya dalam pengembangan web & mobile."
+          />
+          <a
+            href="/cv/my CV (ver. indo).pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-body-sm font-semibold transition-colors shadow-sm self-start sm:self-auto shrink-0"
+          >
+            <FiDownload className="w-4 h-4" />
+            <span>Unduh CV (PDF)</span>
+          </a>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7 space-y-4 text-body-base text-ink-secondary dark:text-ink-dark-secondary leading-relaxed">
             <p>
-              Saya adalah seorang <strong className="text-ink-primary dark:text-ink-dark-primary font-semibold">Fullstack Software Engineer</strong> dengan fokus kuat pada pengembangan aplikasi web yang cepat, skalabel, dan efisien. Berbeda dengan pendekatan yang hanya mementingkan tampilan luar, saya memprioritaskan fondasi arsitektur yang kokoh.
+              Saya adalah seorang <strong className="text-ink-primary dark:text-ink-dark-primary font-semibold">Mahasiswa Teknologi Rekayasa Perangkat Lunak</strong> di Politeknik Negeri Padang yang memiliki minat tinggi di bidang pengembangan web dan mobile.
             </p>
             <p>
-              Dengan pengalaman menangani proyek dari tahap ideasi hingga eksekusi produksi, saya terbiasa bekerja dengan stack modern seperti <strong className="text-ink-primary dark:text-ink-dark-primary">React, Laravel, Node.js, dan Tailwind CSS</strong>. Saya percaya bahwa kode yang baik adalah kode yang dapat dibaca dan dipelihara oleh sesama tim dalam jangka panjang.
+              Memiliki kemampuan dasar hingga lanjutan dalam perancangan sistem, logika pemrograman, serta pengembangan aplikasi web dengan menggunakan teknologi terbaru seperti <strong className="text-ink-primary dark:text-ink-dark-primary">PHP, Laravel, EJS, Python, Kotlin, dan Flutter</strong>.
             </p>
             <p>
-              Di luar aktivitas pemrograman harian, saya aktif mempelajari tren arsitektur cloud, mengoptimalkan Core Web Vitals, dan berkontribusi pada proyek open-source.
+              Spesialis dalam perancangan analisis web dan arsitektur microservice untuk pengelolaan aplikasi berskala mid-high, serta berpengalaman memimpin dan berkolaborasi dalam tim pengembang software.
             </p>
           </div>
 
           <div className="lg:col-span-5 space-y-6">
-            <Card className="space-y-4 bg-slate-50 dark:bg-surface-dark-card border-slate-200 dark:border-surface-dark-border p-6 overflow-hidden">
+            <Card className="space-y-5 bg-slate-50 dark:bg-surface-dark-card border-slate-200 dark:border-surface-dark-border p-6 overflow-hidden">
               {(SITE_CONFIG.avatar || SITE_CONFIG.avatarUrl) && (
                 <div className="flex items-center gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
                   <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-500 flex-shrink-0 bg-slate-200 dark:bg-slate-700">
@@ -109,21 +175,34 @@ export function About() {
                   </div>
                 </div>
               )}
+
+              {/* Contact Quick Info */}
+              <div className="space-y-2 pb-4 border-b border-slate-200 dark:border-slate-800 text-xs text-ink-secondary dark:text-ink-dark-secondary">
+                <div className="flex items-center gap-2">
+                  <FiMail className="text-brand-600 dark:text-brand-400 shrink-0" />
+                  <a href={`mailto:${SITE_CONFIG.email}`} className="hover:underline truncate">{SITE_CONFIG.email}</a>
+                </div>
+                {SITE_CONFIG.phone && (
+                  <div className="flex items-center gap-2">
+                    <FiPhone className="text-brand-600 dark:text-brand-400 shrink-0" />
+                    <span>{SITE_CONFIG.phone}</span>
+                  </div>
+                )}
+                <div className="flex items-center gap-2">
+                  <FiGithub className="text-brand-600 dark:text-brand-400 shrink-0" />
+                  <a href={SITE_CONFIG.github} target="_blank" rel="noreferrer" className="hover:underline truncate">{SITE_CONFIG.github}</a>
+                </div>
+              </div>
               
               <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
                 <FiAward className="text-brand-600 dark:text-brand-400" />
-                <span>Prinsip Pengembangan</span>
+                <span>Keahlian & Soft Skills</span>
               </h3>
-              <div className="space-y-3">
-                {PRINCIPLES.map((p, idx) => (
-                  <div key={idx} className="space-y-1">
-                    <h4 className="text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
-                      <FiCheck className="text-brand-600 dark:text-brand-400 w-4 h-4" />
-                      {p.title}
-                    </h4>
-                    <p className="text-body-sm text-ink-muted dark:text-ink-dark-muted pl-6">
-                      {p.desc}
-                    </p>
+              <div className="space-y-2">
+                {SOFT_SKILLS.map((skill, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-body-sm text-ink-primary dark:text-ink-dark-primary">
+                    <FiCheck className="text-brand-600 dark:text-brand-400 w-4 h-4 shrink-0" />
+                    <span>{skill}</span>
                   </div>
                 ))}
               </div>
@@ -132,27 +211,29 @@ export function About() {
         </div>
       </section>
 
-      {/* Experience Timeline Section */}
+      {/* Pendidikan Section */}
       <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Rekam Jejak Karir"
-          title="Pengalaman Kerja Professional"
-          description="Perjalanan profesional saya sebagai software engineer di berbagai lingkungan pengembangan."
+          eyebrow="Pendidikan"
+          title="Latar Belakang Akademik"
+          description="Riwayat studi formal dan fokus keilmuan teknologi informasi."
         />
 
         <div className="space-y-6 max-w-4xl">
-          {TIMELINE.map((item, index) => (
+          {EDUCATION.map((item, index) => (
             <Card key={index} className="relative pl-6 border-l-4 border-l-brand-600 dark:border-l-brand-500">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
                 <div>
-                  <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">
-                    {item.role}
+                  <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
+                    <FaGraduationCap className="text-brand-600 dark:text-brand-400" />
+                    {item.institution}
                   </h3>
                   <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
-                    {item.company}
+                    {item.major}
                   </p>
                 </div>
-                <Badge variant="default" size="sm" className="self-start sm:self-auto">
+                <Badge variant="default" size="sm" className="self-start sm:self-auto flex items-center gap-1">
+                  <FiCalendar className="w-3 h-3" />
                   {item.period}
                 </Badge>
               </div>
@@ -164,12 +245,82 @@ export function About() {
         </div>
       </section>
 
-      {/* Comprehensive Tech Stack Section */}
+      {/* Pengalaman Timeline Section */}
       <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Ekosistem"
-          title="Seluruh Skill & Tools Teknikal"
-          description="Daftar lengkap pustaka, framework, dan peralatan yang biasa saya operasikan."
+          eyebrow="Pengalaman"
+          title="Pengalaman & Proyek Utama"
+          description="Rekam jejak eksekusi proyek pengembangan web, mobile, dan sistem informasi."
+        />
+
+        <div className="space-y-6 max-w-4xl">
+          {EXPERIENCE.map((item, index) => (
+            <Card key={index} className="relative pl-6 border-l-4 border-l-brand-600 dark:border-l-brand-500 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div>
+                  <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
+                    <FiBriefcase className="text-brand-600 dark:text-brand-400" />
+                    {item.title}
+                  </h3>
+                  <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
+                    {item.role}
+                  </p>
+                </div>
+                <Badge variant="default" size="sm" className="self-start sm:self-auto">
+                  {item.period}
+                </Badge>
+              </div>
+              
+              <p className="text-body-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed">
+                {item.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-1">
+                {item.technologies.map((tech, idx) => (
+                  <Badge key={idx} variant="outline" size="sm">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Sertifikasi Section */}
+      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+        <SectionHeading
+          eyebrow="Sertifikasi"
+          title="Sertifikat & Lisensi Keahlian"
+          description="Sertifikasi resmi yang telah diselesaikan di bidang teknologi."
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {CERTIFICATIONS.map((cert, index) => (
+            <Card key={index} className="p-5 space-y-2 flex flex-col justify-between">
+              <div className="space-y-2">
+                <div className="p-2 rounded-lg bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 w-fit">
+                  <FaCertificate className="w-5 h-5" />
+                </div>
+                <h4 className="text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary">
+                  {cert.title}
+                </h4>
+              </div>
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-ink-muted dark:text-ink-dark-muted flex justify-between items-center">
+                <span>{cert.issuer}</span>
+                <span>{cert.date}</span>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Tech Stack / Skills Section */}
+      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+        <SectionHeading
+          eyebrow="Keahlian Teknikal"
+          title="Bahasa Pemrograman, Framework & Tools"
+          description="Daftar lengkap teknologi yang saya kuasai dan operasikan sesuai CV."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -177,7 +328,7 @@ export function About() {
             const Icon = ICON_MAP[skill.iconKey] || FiTerminal;
             return (
               <Card key={skill.id} className="p-4 flex items-center gap-3">
-                <div className="p-2 rounded-btn bg-slate-100 dark:bg-slate-800">
+                <div className="p-2 rounded-btn bg-slate-100 dark:bg-slate-800 shrink-0">
                   <Icon className="w-6 h-6" style={{ color: skill.color }} />
                 </div>
                 <div>

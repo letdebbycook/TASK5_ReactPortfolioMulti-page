@@ -30,7 +30,7 @@ export function Home() {
               Punya Ide Proyek atau Ingin Berkolaborasi?
             </h2>
             <p className="text-body-base text-ink-secondary dark:text-ink-dark-secondary">
-              Saya selalu terbuka untuk mendiskusikan arsitektur sistem web baru, konsultasi kode, atau bergabung dengan tim berkinerja tinggi.
+              Saya selalu terbuka untuk mendiskusikan pembuatan web, aplikasi, atau bergabung dengan tim dalam membangun sebuah sistem.
             </p>
           </div>
 

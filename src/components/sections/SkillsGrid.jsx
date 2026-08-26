@@ -3,33 +3,46 @@ import { SKILLS } from '../../data/skills';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Card } from '../ui/Card';
 import { 
-  SiReact, 
+  SiPhp, 
   SiLaravel, 
   SiJavascript, 
-  SiGit 
+  SiHtml5, 
+  SiExpress, 
+  SiPython, 
+  SiKotlin, 
+  SiFlutter, 
+  SiMysql, 
+  SiGit, 
+  SiReact 
 } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
 import { TbBrandVscode } from 'react-icons/tb';
 
 const ICON_MAP = {
-  SiReact: SiReact,
+  SiPhp: SiPhp,
   SiLaravel: SiLaravel,
   SiJavascript: SiJavascript,
+  SiHtml5: SiHtml5,
   FaCss3Alt: FaCss3Alt,
+  SiExpress: SiExpress,
+  SiPython: SiPython,
+  SiKotlin: SiKotlin,
+  SiFlutter: SiFlutter,
+  SiMysql: SiMysql,
   SiGit: SiGit,
+  SiReact: SiReact,
   TbBrandVscode: TbBrandVscode,
 };
 
 export function SkillsGrid() {
-  // Filter 6 featured skills specified in the prompt requirement
-  const featuredSkills = SKILLS.filter((skill) => skill.isFeatured).slice(0, 6);
+  const featuredSkills = SKILLS.filter((skill) => skill.isFeatured);
 
   return (
     <section className="py-12 border-t border-slate-200 dark:border-surface-dark-border">
       <SectionHeading
         eyebrow="Keahlian Utama"
         title="Teknologi & Tooling Andalan"
-        description=""
+        description="Teknologi dan kerangka kerja yang biasa saya gunakan berdasarkan pengalaman pengembangan web & mobile."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -43,7 +56,7 @@ export function SkillsGrid() {
             >
               <div className="flex items-start gap-4">
                 {/* Icon wrapper with controlled hover state */}
-                <div className="p-3 rounded-card bg-slate-100 dark:bg-slate-800 text-ink-primary dark:text-ink-dark-primary group-hover:scale-105 transition-transform duration-200">
+                <div className="p-3 rounded-card bg-slate-100 dark:bg-slate-800 text-ink-primary dark:text-ink-dark-primary group-hover:scale-105 transition-transform duration-200 shrink-0">
                   {IconComponent ? (
                     <IconComponent className="w-8 h-8" style={{ color: skill.color }} />
                   ) : (

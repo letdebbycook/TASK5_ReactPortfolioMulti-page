@@ -113,8 +113,6 @@ export function ProjectsPreview({ limit = 3, showHeader = true }) {
                 className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
                 aria-label={`Demo langsung ${project.title}`}
               >
-                <span>Live Demo</span>
-                <FiExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <a

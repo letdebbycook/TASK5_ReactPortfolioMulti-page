@@ -134,8 +134,6 @@ export function Projects() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-body-base font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
               >
-                <span>Kunjungi Live Demo</span>
-                <FiExternalLink className="w-4 h-4" />
               </a>
 
               <a
