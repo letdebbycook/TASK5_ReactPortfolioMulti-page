@@ -40,7 +40,7 @@ export function Contact() {
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
       
       <SectionHeading
-        eyebrow="Hubungi Saya"
+        variant="with-line"
         title="Mari Berdiskusi Mengenai Proyek Anda"
         description="Punya pertanyaan teknis, penawaran proyek, atau ingin berdiskusi mengenai peluang kerja sama? Silakan kirim pesan melalui form atau kontak langsung."
       />
@@ -49,32 +49,32 @@ export function Contact() {
         
         {/* Contact Info Cards */}
         <div className="lg:col-span-5 space-y-6">
-          <Card className="space-y-6 bg-slate-50 dark:bg-surface-dark-card">
-            <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">
+          <Card variant="featured" className="space-y-6">
+            <h3 className="font-display text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">
               Informasi Kontak
             </h3>
 
             <div className="space-y-4">
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="flex items-start gap-4 p-3 rounded-btn hover:bg-slate-200/60 dark:hover:bg-slate-800/60 transition-colors group"
+                className="flex items-start gap-3 sm:gap-4 p-3 rounded-btn hover:bg-brand-50/60 dark:hover:bg-surface-dark-border/60 transition-colors group overflow-hidden"
               >
-                <div className="p-2.5 rounded-btn bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 group-hover:scale-105 transition-transform">
+                <div className="p-2.5 rounded-btn bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 group-hover:scale-105 transition-transform shrink-0 border border-brand-200/50 dark:border-brand-800/40">
                   <FiMail className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium">Alamat Email</p>
-                  <p className="text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
+                  <p className="text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary break-all">
                     {SITE_CONFIG.email}
                   </p>
                 </div>
               </a>
 
-              <div className="flex items-start gap-4 p-3 rounded-btn">
-                <div className="p-2.5 rounded-btn bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400">
+              <div className="flex items-start gap-3 sm:gap-4 p-3 rounded-btn">
+                <div className="p-2.5 rounded-btn bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 shrink-0 border border-brand-200/50 dark:border-brand-800/40">
                   <FiMapPin className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium">Domisili Utama</p>
                   <p className="text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
                     {SITE_CONFIG.location}
@@ -83,14 +83,14 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
+            <div className="pt-4 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-3">
               <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium">Profil Professional</p>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <a
                   href={SITE_CONFIG.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3 rounded-btn border border-slate-200 dark:border-slate-700 text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
+                  className="p-3 rounded-btn border border-ink-primary/10 dark:border-surface-dark-border text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
                   aria-label="GitHub"
                 >
                   <FiGithub className="w-5 h-5" />
@@ -99,7 +99,7 @@ export function Contact() {
                   href={SITE_CONFIG.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3 rounded-btn border border-slate-200 dark:border-slate-700 text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
+                  className="p-3 rounded-btn border border-ink-primary/10 dark:border-surface-dark-border text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <FiLinkedin className="w-5 h-5" />
@@ -109,7 +109,7 @@ export function Contact() {
                     href={SITE_CONFIG.instagram || SITE_CONFIG.twitter}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3 rounded-btn border border-slate-200 dark:border-slate-700 text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
+                    className="p-3 rounded-btn border border-ink-primary/10 dark:border-surface-dark-border text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500 transition-colors"
                     aria-label="Instagram"
                   >
                     <FiInstagram className="w-5 h-5" />
@@ -122,13 +122,13 @@ export function Contact() {
 
         {/* Interactive Contact Form */}
         <div className="lg:col-span-7">
-          <Card className="p-6 sm:p-8">
+          <Card className="p-5 sm:p-8">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <div className="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-300 dark:border-emerald-800">
                   <FiCheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-heading-md font-bold text-ink-primary dark:text-ink-dark-primary">
+                <h3 className="font-display text-heading-md font-bold text-ink-primary dark:text-ink-dark-primary">
                   Pesan Terkirim!
                 </h3>
                 <p className="text-body-base text-ink-secondary dark:text-ink-dark-secondary max-w-md mx-auto">
@@ -142,7 +142,7 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <label htmlFor="name" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
+                    <label htmlFor="name" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-display">
                       Nama Lengkap <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -153,12 +153,12 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Masukkan nama Anda"
-                      className="w-full px-4 py-2.5 rounded-btn bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-btn bg-surface-light dark:bg-surface-dark-card border border-ink-primary/15 dark:border-surface-dark-border text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-brand-500 transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="email" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
+                    <label htmlFor="email" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-display">
                       Email Contact <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -169,13 +169,13 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="nama@perusahaan.com"
-                      className="w-full px-4 py-2.5 rounded-btn bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-btn bg-surface-light dark:bg-surface-dark-card border border-ink-primary/15 dark:border-surface-dark-border text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-brand-500 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="subject" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
+                  <label htmlFor="subject" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-display">
                     Subjek Diskusi <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -186,12 +186,12 @@ export function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Contoh: Diskusi Penawaran Proyek Fullstack"
-                    className="w-full px-4 py-2.5 rounded-btn bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 transition-colors"
+                    className="w-full px-4 py-2.5 rounded-btn bg-surface-light dark:bg-surface-dark-card border border-ink-primary/15 dark:border-surface-dark-border text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-brand-500 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="message" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary">
+                  <label htmlFor="message" className="block text-body-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-display">
                     Pesan Detail <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -202,7 +202,7 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tuliskan gambaran proyek, timeline, atau pertanyaan Anda di sini..."
-                    className="w-full px-4 py-2.5 rounded-btn bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 transition-colors resize-y"
+                    className="w-full px-4 py-2.5 rounded-btn bg-surface-light dark:bg-surface-dark-card border border-ink-primary/15 dark:border-surface-dark-border text-ink-primary dark:text-ink-dark-primary text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-brand-500 transition-colors resize-y"
                   />
                 </div>
 

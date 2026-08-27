@@ -3,70 +3,84 @@ import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../../lib/constants';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
-import { FiArrowRight, FiMail, FiCode, FiLayers, FiCheckCircle } from 'react-icons/fi';
+import { FiArrowRight, FiMail } from 'react-icons/fi';
 
 export function Hero() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section className="py-12 md:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="relative py-12 md:py-24 overflow-hidden">
+      {/* Decorative Floating Dot Grid Background Accent */}
+      <div className="absolute top-1/4 -right-16 w-72 h-72 bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute -bottom-10 left-1/3 w-64 h-64 bg-accent-500/10 dark:bg-accent-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      
+      {/* Floating Animated Geometric Deco */}
+      <div 
+        aria-hidden 
+        className="hidden lg:block absolute top-12 right-1/4 animate-float opacity-30 dark:opacity-40 pointer-events-none text-brand-600 dark:text-brand-400 select-none"
+      >
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="2" fill="currentColor" />
+          <circle cx="24" cy="8" r="2" fill="currentColor" />
+          <circle cx="40" cy="8" r="2" fill="currentColor" />
+          <circle cx="56" cy="8" r="2" fill="currentColor" />
+          <circle cx="8" cy="24" r="2" fill="currentColor" />
+          <circle cx="24" cy="24" r="2" fill="currentColor" />
+          <circle cx="40" cy="24" r="2" fill="currentColor" />
+          <circle cx="56" cy="24" r="2" fill="currentColor" />
+          <circle cx="8" cy="40" r="2" fill="currentColor" />
+          <circle cx="24" cy="40" r="2" fill="currentColor" />
+          <circle cx="40" cy="40" r="2" fill="currentColor" />
+          <circle cx="56" cy="40" r="2" fill="currentColor" />
+        </svg>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        {/* Text Content */}
-        <div className="lg:col-span-7 space-y-6">
-          <div className="flex items-center gap-2">
+        {/* Dominant Text Column */}
+        <div className="lg:col-span-8 space-y-6">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge variant="brand" size="md">
-              <span className="w-2 h-2 rounded-full bg-brand-600 mr-2" />
+              <span className="w-2 h-2 rounded-full bg-brand-500 mr-2 animate-pulse" />
               {SITE_CONFIG.role}
             </Badge>
+            <span className="text-xs text-ink-muted dark:text-ink-dark-muted font-mono hidden sm:inline">
+              Politeknik Negeri Padang
+            </span>
           </div>
 
-          <h1 className="text-heading-xl text-ink-primary dark:text-ink-dark-primary font-extrabold tracking-tight">
-            Mengembangkan Website & Aplikasi Mobile Menggunakan Teknologi Terbaru
-          </h1>
+          <div className="space-y-3">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-ink-primary dark:text-ink-dark-primary leading-[1.08]">
+              Membangun Solusi <span className="text-brand-600 dark:text-brand-400 font-light italic">Web & Mobile</span> Modern.
+            </h1>
+            <p className="text-body-base sm:text-lg text-ink-secondary dark:text-ink-dark-secondary leading-relaxed max-w-2xl font-sans pt-1">
+              Halo, saya <strong className="text-ink-primary dark:text-ink-dark-primary font-semibold">{SITE_CONFIG.name}</strong>. Fokus mengembangkan aplikasi web berskala produksi dengan PHP, Laravel, React, dan Flutter.
+            </p>
+          </div>
 
-          <p className="text-body-base text-ink-secondary dark:text-ink-dark-secondary leading-relaxed max-w-2xl">
-            
-          </p>
-
-          {/* Key Quick Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-btn bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">
-                <FiCode className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">3 Tahun</p>
-                <p className="text-body-sm text-ink-muted dark:text-ink-dark-muted">SE Experience</p>
-              </div>
+          {/* Authentic Quick Highlights */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-2 max-w-xl">
+            <div className="p-3 sm:p-4 rounded-card bg-ink-primary/5 dark:bg-surface-dark-border/40 border border-ink-primary/5 dark:border-surface-dark-border/50">
+              <p className="font-display text-xl sm:text-2xl font-bold text-brand-600 dark:text-brand-400">3 Thn</p>
+              <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium mt-0.5">Studi TRPL</p>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-btn bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">
-                <FiLayers className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">1 Proyek</p>
-                <p className="text-body-sm text-ink-muted dark:text-ink-dark-muted">Project Published</p>
-              </div>
+            <div className="p-3 sm:p-4 rounded-card bg-ink-primary/5 dark:bg-surface-dark-border/40 border border-ink-primary/5 dark:border-surface-dark-border/50">
+              <p className="font-display text-xl sm:text-2xl font-bold text-ink-primary dark:text-ink-dark-primary">3 Proyek</p>
+              <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium mt-0.5">Studi Kasus Nyata</p>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-btn bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">
-                <FiCheckCircle className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary">4.7/5.0</p>
-                <p className="text-body-sm text-ink-muted dark:text-ink-dark-muted">Client Satisfied</p>
-              </div>
+            <div className="p-3 sm:p-4 rounded-card bg-ink-primary/5 dark:bg-surface-dark-border/40 border border-ink-primary/5 dark:border-surface-dark-border/50">
+              <p className="font-display text-xl sm:text-2xl font-bold text-accent-600 dark:text-accent-400">10+ Tech</p>
+              <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-medium mt-0.5">Stack Dikuasai</p>
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          {/* CTA Actions */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link to="/projects">
               <Button variant="primary" size="lg" icon={FiArrowRight} iconPosition="right">
-                Lihat Projects
+                Eksplorasi Proyek
               </Button>
             </Link>
             <Link to="/contact">
@@ -77,53 +91,50 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Profile Card / Avatar */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-sm">
-            {/* Background accent block */}
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-600 to-brand-500 rounded-card blur-xs opacity-20 dark:opacity-40" />
+        {/* Profile Element (Integrated / Non-template Card) */}
+        <div className="lg:col-span-4 flex justify-center lg:justify-end">
+          <div className="relative w-64 sm:w-72 lg:w-full max-w-xs">
+            {/* Ambient Violet Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-brand-600/30 to-accent-500/20 rounded-3xl blur-md opacity-60 dark:opacity-80" />
             
-            <div className="relative bg-surface-light-card dark:bg-surface-dark-card border border-slate-200 dark:border-surface-dark-border rounded-card p-6 shadow-card space-y-5">
-              {/* Profile Image Container */}
-              <div className="relative aspect-square w-full rounded-card overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group">
+            <div className="relative rounded-2xl overflow-hidden bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border p-3 shadow-elevated">
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-brand-50 dark:bg-surface-dark-border group">
                 {(SITE_CONFIG.avatar || SITE_CONFIG.avatarUrl) && !imgError ? (
                   <img
                     src={SITE_CONFIG.avatar || SITE_CONFIG.avatarUrl}
                     alt={`Foto Profil ${SITE_CONFIG.name}`}
                     onError={() => setImgError(true)}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center p-6 space-y-3">
-                    <div className="w-24 h-24 rounded-full bg-brand-600 text-white font-extrabold text-3xl flex items-center justify-center shadow-md">
+                    <div className="w-20 h-20 rounded-full bg-brand-600 text-white font-display font-extrabold text-2xl flex items-center justify-center shadow-md">
                       {SITE_CONFIG.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase()}
                     </div>
                   </div>
                 )}
 
-                {/* Subtle gradient overlay at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80 pointer-events-none" />
+                {/* Subtle gradient vignette at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/80 via-transparent to-transparent opacity-90 pointer-events-none" />
 
-                <div className="absolute bottom-3 left-4 right-4 text-white">
-                  <h3 className="text-heading-sm font-bold shadow-text">
+                <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <p className="font-display text-sm font-bold truncate">
                     {SITE_CONFIG.name}
-                  </h3>
-                  <p className="text-xs text-slate-200">
-                    {SITE_CONFIG.role}
+                  </p>
+                  <p className="text-xs text-brand-200/90 font-sans truncate">
+                    {SITE_CONFIG.location}
                   </p>
                 </div>
               </div>
 
-              {/* Status details */}
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2 text-body-sm">
-                <div className="flex justify-between text-ink-secondary dark:text-ink-dark-secondary">
-                  <span>Lokasi:</span>
-                  <span className="font-semibold text-ink-primary dark:text-ink-dark-primary">{SITE_CONFIG.location}</span>
-                </div>
-                <div className="flex justify-between text-ink-secondary dark:text-ink-dark-secondary">
-                  <span>Spesialisasi:</span>
-                  <span className="font-semibold text-ink-primary dark:text-ink-dark-primary">React & Laravel</span>
-                </div>
+              <div className="px-1 pt-2.5 flex items-center justify-between text-xs text-ink-secondary dark:text-ink-dark-secondary">
+                <span className="flex items-center gap-1.5 font-mono text-[11px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Siap Berkolaborasi
+                </span>
+                <span className="text-[11px] text-ink-muted dark:text-ink-dark-muted font-mono">
+                  TRPL PNP
+                </span>
               </div>
             </div>
           </div>

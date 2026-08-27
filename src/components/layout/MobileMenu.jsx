@@ -13,18 +13,18 @@ export function MobileMenu({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 md:hidden">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Drawer Content */}
-      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-surface-light-card dark:bg-surface-dark-card border-l border-slate-200 dark:border-surface-dark-border p-6 shadow-2xl flex flex-col justify-between">
+      <div className="fixed right-0 top-0 bottom-0 w-3/4 max-w-xs bg-surface-light-card dark:bg-surface-dark-card border-l border-ink-primary/10 dark:border-surface-dark-border p-6 shadow-2xl flex flex-col justify-between">
         <div>
           {/* Header */}
-          <div className="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
-            <span className="font-bold text-heading-sm text-ink-primary dark:text-ink-dark-primary">
-              Menu
+          <div className="flex items-center justify-between pb-6 border-b border-ink-primary/10 dark:border-surface-dark-border">
+            <span className="font-display font-bold text-heading-sm text-ink-primary dark:text-ink-dark-primary">
+              Navigasi
             </span>
             <button
               onClick={onClose}
@@ -46,8 +46,8 @@ export function MobileMenu({ isOpen, onClose }) {
                   onClick={onClose}
                   className={`px-4 py-3 rounded-btn text-body-base font-medium transition-colors ${
                     active
-                      ? 'bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 font-semibold'
-                      : 'text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                      ? 'bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 font-semibold border-l-2 border-brand-600 dark:border-brand-400'
+                      : 'text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-white hover:bg-ink-primary/5 dark:hover:bg-surface-dark-border/50'
                   }`}
                 >
                   {link.name}
@@ -58,8 +58,8 @@ export function MobileMenu({ isOpen, onClose }) {
         </div>
 
         {/* Footer info in menu */}
-        <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
-          <div className="flex items-center gap-4 text-ink-secondary dark:text-ink-dark-secondary">
+        <div className="pt-6 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-4">
+          <div className="flex items-center gap-3 text-ink-secondary dark:text-ink-dark-secondary">
             <a
               href={SITE_CONFIG.github}
               target="_blank"
@@ -97,7 +97,7 @@ export function MobileMenu({ isOpen, onClose }) {
               <FiMail className="w-5 h-5" />
             </a>
           </div>
-          <p className="text-body-sm text-ink-muted dark:text-ink-dark-muted">
+          <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-sans">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}
           </p>
         </div>

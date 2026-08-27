@@ -31,17 +31,17 @@ import {
 } from 'react-icons/si';
 
 const ICON_MAP = {
-  SiPhp: SiPhp,
-  SiLaravel: SiLaravel,
-  SiJavascript: SiJavascript,
-  SiHtml5: SiHtml5,
-  SiExpress: SiExpress,
-  SiPython: SiPython,
-  SiKotlin: SiKotlin,
-  SiFlutter: SiFlutter,
-  SiMysql: SiMysql,
-  SiGit: SiGit,
-  FaJava: FaJava,
+  SiPhp,
+  SiLaravel,
+  SiJavascript,
+  SiHtml5,
+  SiExpress,
+  SiPython,
+  SiKotlin,
+  SiFlutter,
+  SiMysql,
+  SiGit,
+  FaJava,
 };
 
 const EDUCATION = [
@@ -129,6 +129,7 @@ export function About() {
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <SectionHeading
+            variant="default"
             eyebrow="Tentang Saya"
             title="Profil & Rekayasa Perangkat Lunak"
             description="Latar belakang, keahlian, dan rekam jejak saya dalam pengembangan web & mobile."
@@ -137,7 +138,7 @@ export function About() {
             href="/cv/my CV (ver. indo).pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-body-sm font-semibold transition-colors shadow-sm self-start sm:self-auto shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-btn bg-brand-600 hover:bg-brand-700 text-white text-body-sm font-semibold transition-colors shadow-sm self-start sm:self-auto shrink-0 font-display shimmer-btn"
           >
             <FiDownload className="w-4 h-4" />
             <span>Unduh CV (PDF)</span>
@@ -150,7 +151,7 @@ export function About() {
               Saya adalah seorang <strong className="text-ink-primary dark:text-ink-dark-primary font-semibold">Mahasiswa Teknologi Rekayasa Perangkat Lunak</strong> di Politeknik Negeri Padang yang memiliki minat tinggi di bidang pengembangan web dan mobile.
             </p>
             <p>
-              Memiliki kemampuan dasar hingga lanjutan dalam perancangan sistem, logika pemrograman, serta pengembangan aplikasi web dengan menggunakan teknologi terbaru seperti <strong className="text-ink-primary dark:text-ink-dark-primary">PHP, Laravel, EJS, Python, Kotlin, dan Flutter</strong>.
+              Memiliki kemampuan dasar hingga lanjutan dalam perancangan sistem, logika pemrograman, serta pengembangan aplikasi web dengan menggunakan teknologi terbaru seperti <strong className="text-ink-primary dark:text-ink-dark-primary font-semibold">PHP, Laravel, EJS, Python, Kotlin, dan Flutter</strong>.
             </p>
             <p>
               Spesialis dalam perancangan analisis web dan arsitektur microservice untuk pengelolaan aplikasi berskala mid-high, serta berpengalaman memimpin dan berkolaborasi dalam tim pengembang software.
@@ -158,26 +159,26 @@ export function About() {
           </div>
 
           <div className="lg:col-span-5 space-y-6">
-            <Card className="space-y-5 bg-slate-50 dark:bg-surface-dark-card border-slate-200 dark:border-surface-dark-border p-6 overflow-hidden">
+            <Card variant="featured" className="space-y-5">
               {(SITE_CONFIG.avatar || SITE_CONFIG.avatarUrl) && (
-                <div className="flex items-center gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-500 flex-shrink-0 bg-slate-200 dark:bg-slate-700">
+                <div className="flex items-center gap-4 pb-4 border-b border-ink-primary/10 dark:border-surface-dark-border">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-brand-500 flex-shrink-0 bg-brand-100 dark:bg-brand-950">
                     <img 
                       src={SITE_CONFIG.avatar || SITE_CONFIG.avatarUrl} 
                       alt={SITE_CONFIG.name}
                       className="w-full h-full object-cover" 
                     />
                   </div>
-                  <div>
-                    <h3 className="text-body-base font-bold text-ink-primary dark:text-ink-dark-primary">{SITE_CONFIG.name}</h3>
-                    <p className="text-xs text-brand-600 dark:text-brand-400 font-medium">{SITE_CONFIG.role}</p>
-                    <p className="text-xs text-ink-muted dark:text-ink-dark-muted">{SITE_CONFIG.location}</p>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-body-base font-bold text-ink-primary dark:text-ink-dark-primary truncate">{SITE_CONFIG.name}</h3>
+                    <p className="text-xs text-brand-600 dark:text-brand-400 font-medium truncate">{SITE_CONFIG.role}</p>
+                    <p className="text-xs text-ink-muted dark:text-ink-dark-muted font-mono truncate">{SITE_CONFIG.location}</p>
                   </div>
                 </div>
               )}
 
               {/* Contact Quick Info */}
-              <div className="space-y-2 pb-4 border-b border-slate-200 dark:border-slate-800 text-xs text-ink-secondary dark:text-ink-dark-secondary">
+              <div className="space-y-2 pb-4 border-b border-ink-primary/10 dark:border-surface-dark-border text-xs text-ink-secondary dark:text-ink-dark-secondary">
                 <div className="flex items-center gap-2">
                   <FiMail className="text-brand-600 dark:text-brand-400 shrink-0" />
                   <a href={`mailto:${SITE_CONFIG.email}`} className="hover:underline truncate">{SITE_CONFIG.email}</a>
@@ -194,7 +195,7 @@ export function About() {
                 </div>
               </div>
               
-              <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
+              <h3 className="font-display text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
                 <FiAward className="text-brand-600 dark:text-brand-400" />
                 <span>Keahlian & Soft Skills</span>
               </h3>
@@ -211,135 +212,155 @@ export function About() {
         </div>
       </section>
 
-      {/* Pendidikan Section */}
-      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+      {/* Pendidikan Section with Numbered Timeline */}
+      <section className="py-8 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Pendidikan"
+          variant="with-line"
           title="Latar Belakang Akademik"
           description="Riwayat studi formal dan fokus keilmuan teknologi informasi."
         />
 
-        <div className="space-y-6 max-w-4xl">
+        <div className="space-y-4 max-w-4xl">
           {EDUCATION.map((item, index) => (
-            <Card key={index} className="relative pl-6 border-l-4 border-l-brand-600 dark:border-l-brand-500">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                <div>
-                  <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
-                    <FaGraduationCap className="text-brand-600 dark:text-brand-400" />
-                    {item.institution}
-                  </h3>
-                  <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
-                    {item.major}
-                  </p>
+            <div 
+              key={index}
+              className="relative p-5 rounded-xl-card bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border hover:border-brand-500/30 transition-all space-y-3"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-950/70 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 border border-brand-200/50 dark:border-brand-800/50 font-display font-bold text-xs">
+                    0{index + 1}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
+                      {item.institution}
+                    </h3>
+                    <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
+                      {item.major}
+                    </p>
+                  </div>
                 </div>
-                <Badge variant="default" size="sm" className="self-start sm:self-auto flex items-center gap-1">
+                <Badge variant="brand" size="sm" className="self-start sm:self-auto flex items-center gap-1 font-mono">
                   <FiCalendar className="w-3 h-3" />
                   {item.period}
                 </Badge>
               </div>
-              <p className="text-body-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed mt-2">
+              <p className="text-body-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed pl-11">
                 {item.description}
               </p>
-            </Card>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Pengalaman Timeline Section */}
-      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+      <section className="py-8 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Pengalaman"
+          variant="with-line"
           title="Pengalaman & Proyek Utama"
           description="Rekam jejak eksekusi proyek pengembangan web, mobile, dan sistem informasi."
         />
 
-        <div className="space-y-6 max-w-4xl">
+        <div className="space-y-4 max-w-4xl">
           {EXPERIENCE.map((item, index) => (
-            <Card key={index} className="relative pl-6 border-l-4 border-l-brand-600 dark:border-l-brand-500 space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <h3 className="text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
-                    <FiBriefcase className="text-brand-600 dark:text-brand-400" />
-                    {item.title}
-                  </h3>
-                  <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
-                    {item.role}
-                  </p>
+            <div 
+              key={index} 
+              className="p-5 rounded-xl-card bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border hover:border-brand-500/30 transition-all space-y-3"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400 flex items-center justify-center shrink-0 border border-accent-200/50 dark:border-accent-600/30 font-display font-bold text-xs">
+                    0{index + 1}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-heading-sm font-bold text-ink-primary dark:text-ink-dark-primary flex items-center gap-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-body-sm font-medium text-brand-600 dark:text-brand-400">
+                      {item.role}
+                    </p>
+                  </div>
                 </div>
-                <Badge variant="default" size="sm" className="self-start sm:self-auto">
+                <Badge variant="outline" size="sm" className="self-start sm:self-auto font-mono">
                   {item.period}
                 </Badge>
               </div>
               
-              <p className="text-body-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed">
+              <p className="text-body-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed pl-11">
                 {item.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div className="flex flex-wrap gap-2 pt-1 pl-11">
                 {item.technologies.map((tech, idx) => (
-                  <Badge key={idx} variant="outline" size="sm">
+                  <Badge key={idx} variant="default" size="sm">
                     {tech}
                   </Badge>
                 ))}
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Sertifikasi Section */}
-      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+      <section className="py-8 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Sertifikasi"
+          variant="with-line"
           title="Sertifikat & Lisensi Keahlian"
-          description="Sertifikasi resmi yang telah diselesaikan di bidang teknologi."
+          description="Sertifikasi resmi yang telah diselesaikan di bidang teknologi informasi."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {CERTIFICATIONS.map((cert, index) => (
-            <Card key={index} className="p-5 space-y-2 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="p-2 rounded-lg bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 w-fit">
+            <div 
+              key={index} 
+              className="p-5 rounded-xl-card bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border hover:border-brand-500/30 transition-all space-y-3 flex flex-col justify-between"
+            >
+              <div className="space-y-2.5">
+                <div className="p-2.5 rounded-lg bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 w-fit border border-brand-200/50 dark:border-brand-800/40">
                   <FaCertificate className="w-5 h-5" />
                 </div>
-                <h4 className="text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary">
+                <h4 className="font-display text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary">
                   {cert.title}
                 </h4>
               </div>
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-ink-muted dark:text-ink-dark-muted flex justify-between items-center">
+              <div className="pt-2.5 border-t border-ink-primary/5 dark:border-surface-dark-border text-xs text-ink-muted dark:text-ink-dark-muted flex justify-between items-center font-mono">
                 <span>{cert.issuer}</span>
                 <span>{cert.date}</span>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Tech Stack / Skills Section */}
-      <section className="py-8 border-t border-slate-200 dark:border-surface-dark-border space-y-8">
+      {/* Tech Stack Showcase */}
+      <section className="py-8 border-t border-ink-primary/10 dark:border-surface-dark-border space-y-8">
         <SectionHeading
-          eyebrow="Keahlian Teknikal"
+          variant="with-line"
           title="Bahasa Pemrograman, Framework & Tools"
           description="Daftar lengkap teknologi yang saya kuasai dan operasikan sesuai CV."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {SKILLS.map((skill) => {
             const Icon = ICON_MAP[skill.iconKey] || FiTerminal;
             return (
-              <Card key={skill.id} className="p-4 flex items-center gap-3">
-                <div className="p-2 rounded-btn bg-slate-100 dark:bg-slate-800 shrink-0">
-                  <Icon className="w-6 h-6" style={{ color: skill.color }} />
+              <div 
+                key={skill.id} 
+                className="p-3.5 rounded-xl-card bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border hover:border-brand-500/40 transition-all flex items-center gap-3 group"
+              >
+                <div className="p-2 rounded-btn bg-ink-primary/5 dark:bg-surface-dark-border/60 shrink-0 group-hover:scale-105 transition-transform">
+                  <Icon className="w-5 h-5" style={{ color: skill.color }} />
                 </div>
-                <div>
-                  <h4 className="text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary">
+                <div className="min-w-0">
+                  <h4 className="font-display text-body-sm font-bold text-ink-primary dark:text-ink-dark-primary truncate">
                     {skill.name}
                   </h4>
-                  <p className="text-xs text-ink-muted dark:text-ink-dark-muted">
+                  <p className="text-[11px] text-ink-muted dark:text-ink-dark-muted truncate">
                     {skill.category}
                   </p>
                 </div>
-              </Card>
+              </div>
             );
           })}
         </div>

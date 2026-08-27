@@ -5,7 +5,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
-import { FiExternalLink, FiGithub, FiFilter } from 'react-icons/fi';
+import { FiGithub, FiFilter } from 'react-icons/fi';
 
 const CATEGORIES = ['Semua', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
 
@@ -23,13 +23,13 @@ export function Projects() {
       {/* Header */}
       <div className="space-y-6">
         <SectionHeading
-          eyebrow="Katalog Karya"
-          title="Seluruh Proyek & Studi Kasus Produksi"
-          description="Koleksi proyek perangkat lunak nyata yang pernah saya bangun, mulai dari dashboard analitik, arsitektur REST API, hingga aplikasi web multi-tenant."
+          variant="with-line"
+          title="Seluruh Proyek & Studi Kasus"
+          description="Proyek yang pernah saya bangun selama perkuliahan dan eksplorasi di Politeknik Negeri Padang."
         />
 
         {/* Category Filter Buttons */}
-        <div className="flex flex-wrap items-center gap-2 pb-4 border-b border-slate-200 dark:border-surface-dark-border">
+        <div className="flex flex-wrap items-center gap-2 pb-4 border-b border-ink-primary/10 dark:border-surface-dark-border">
           <div className="flex items-center gap-2 mr-2 text-body-sm font-semibold text-ink-secondary dark:text-ink-dark-secondary">
             <FiFilter className="w-4 h-4 text-brand-600 dark:text-brand-400" />
             <span>Kategori:</span>
@@ -42,8 +42,8 @@ export function Projects() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-3.5 py-1.5 rounded-btn text-body-sm font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
                   active
-                    ? 'bg-brand-600 text-white shadow-xs'
-                    : 'bg-slate-100 dark:bg-slate-800/80 text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700/80'
+                    ? 'bg-brand-600 text-white shadow-sm font-semibold'
+                    : 'bg-ink-primary/5 dark:bg-surface-dark-border/60 text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-white hover:bg-ink-primary/10 dark:hover:bg-surface-dark-border'
                 }`}
               >
                 {category}
@@ -54,21 +54,22 @@ export function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredProjects.map((project) => (
           <Card 
             key={project.id} 
+            variant="elevated"
             hoverEffect 
-            className="flex flex-col justify-between h-full group p-6 sm:p-8 overflow-hidden"
+            className="flex flex-col justify-between h-full group p-5 sm:p-7 overflow-hidden"
           >
             <div className="space-y-4">
               {/* Project Image Header */}
               {project.image && (
-                <div className="relative aspect-video w-full -mt-6 -mx-6 sm:-mt-8 sm:-mx-8 mb-4 overflow-hidden bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+                <div className="relative aspect-video w-full -mt-5 -mx-5 sm:-mt-7 sm:-mx-7 mb-4 overflow-hidden bg-brand-50/50 dark:bg-surface-dark border-b border-ink-primary/10 dark:border-surface-dark-border">
                   <img
                     src={project.image}
                     alt={`Preview ${project.title}`}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
@@ -88,7 +89,7 @@ export function Projects() {
                     {project.category}
                   </Badge>
                   {project.metrics && (
-                    <span className="text-body-sm font-semibold text-brand-600 dark:text-brand-400">
+                    <span className="text-body-sm font-semibold font-mono text-brand-600 dark:text-brand-400">
                       {project.metrics}
                     </span>
                   )}
@@ -98,14 +99,14 @@ export function Projects() {
               {/* Metrics badge when image is present */}
               {project.image && project.metrics && (
                 <div className="flex items-center justify-end">
-                  <span className="text-body-sm font-semibold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50 px-3 py-1 rounded-btn">
+                  <span className="text-xs font-mono font-medium text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 px-3 py-1 rounded-btn border border-brand-200 dark:border-brand-800/80">
                     {project.metrics}
                   </span>
                 </div>
               )}
 
               <div>
-                <h2 className="text-heading-md font-bold text-ink-primary dark:text-ink-dark-primary group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                <h2 className="font-display text-heading-md font-bold text-ink-primary dark:text-ink-dark-primary group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                   {project.title}
                 </h2>
                 <p className="text-body-base text-ink-muted dark:text-ink-dark-muted font-medium mt-1">
@@ -127,24 +128,18 @@ export function Projects() {
             </div>
 
             {/* Links */}
-            <div className="flex items-center gap-4 pt-6 mt-8 border-t border-slate-100 dark:border-slate-800">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-body-base font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition-colors"
-              >
-              </a>
-
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-body-base text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-white transition-colors ml-auto"
-              >
-                <FiGithub className="w-5 h-5" />
-                <span>Source Code</span>
-              </a>
+            <div className="flex items-center justify-end pt-4 mt-6 border-t border-ink-primary/10 dark:border-surface-dark-border">
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-body-sm sm:text-body-base text-ink-secondary dark:text-ink-dark-secondary hover:text-brand-600 dark:hover:text-brand-400 transition-colors ml-auto"
+                >
+                  <FiGithub className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Source Code</span>
+                </a>
+              )}
             </div>
           </Card>
         ))}
