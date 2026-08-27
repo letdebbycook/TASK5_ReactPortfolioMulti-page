@@ -24,10 +24,10 @@ export function Home() {
 
       {/* Homepage Call to Action Section */}
       <section className="py-14 border-t border-ink-primary/10 dark:border-surface-dark-border">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600/10 via-surface-light-card to-accent-500/10 dark:from-brand-950/60 dark:via-surface-dark-card dark:to-surface-dark-card border border-brand-300/40 dark:border-brand-800/40 p-8 sm:p-12 text-center space-y-6 shadow-elevated">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-50/50 via-surface-light-card to-surface-light dark:from-brand-950/30 dark:via-surface-dark-card dark:to-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border p-8 sm:p-12 text-center space-y-6 shadow-elevated">
           {/* Ambient Corner Blur */}
-          <div className="absolute -top-12 -left-12 w-48 h-48 bg-brand-500/20 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-accent-500/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -top-12 -left-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl pointer-events-none" />
 
           <div className="relative max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-mono font-semibold text-brand-600 dark:text-brand-400">

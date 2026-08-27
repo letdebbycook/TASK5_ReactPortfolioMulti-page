@@ -94,8 +94,8 @@ export function Hero() {
         {/* Profile Element (Integrated / Non-template Card) */}
         <div className="lg:col-span-4 flex justify-center lg:justify-end">
           <div className="relative w-64 sm:w-72 lg:w-full max-w-xs">
-            {/* Ambient Violet Glow */}
-            <div className="absolute -inset-2 bg-gradient-to-tr from-brand-600/30 to-accent-500/20 rounded-3xl blur-md opacity-60 dark:opacity-80" />
+            {/* Ambient Tech Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-brand-600/20 to-brand-400/10 rounded-3xl blur-md opacity-40 dark:opacity-60" />
             
             <div className="relative rounded-2xl overflow-hidden bg-surface-light-card dark:bg-surface-dark-card border border-ink-primary/10 dark:border-surface-dark-border p-3 shadow-elevated">
               <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-brand-50 dark:bg-surface-dark-border group">
